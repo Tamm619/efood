@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { adicionar } from '../../store/reducers/carrinho'
+import { adicionar, abrir } from '../../store/reducers/carrinho'
 
 import HeaderPerfil from '../../components/HeaderPerfil'
 import BannerPerfil from '../../components/BannerPerfil'
@@ -41,6 +41,12 @@ const Perfil = () => {
 
   if (!perfil) return <div>Restaurante não encontrado</div>
 
+  const handleAddToCart = (produto: ApiProduto) => {
+    dispatch(adicionar(produto))
+    dispatch(abrir()) // ✅ garante abrir o carrinho
+    setProdutoSelecionado(null) // ✅ feedback claro: fecha o modal após adicionar
+  }
+
   return (
     <>
       <HeaderPerfil />
@@ -60,7 +66,7 @@ const Perfil = () => {
         <ProductModal
           produto={produtoSelecionado}
           onClose={() => setProdutoSelecionado(null)}
-          onAddToCart={(produto) => dispatch(adicionar(produto))}
+          onAddToCart={handleAddToCart}
         />
       )}
     </>

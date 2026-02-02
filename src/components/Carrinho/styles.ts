@@ -143,3 +143,10 @@ export const Texto = styled.p`
   line-height: 1.6;
   margin: 0 0 16px 0;
 `
+
+// ✅ mensagens de validação
+export const Erro = styled.small`
+  color: ${cores.brancofull};
+  font-size: 11px;
+  line-height: 1.2;
+`

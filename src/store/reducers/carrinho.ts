@@ -31,6 +31,7 @@ const carrinhoSlice = createSlice({
         cartId: crypto.randomUUID()
       }
       state.itens.push(item)
+      state.isOpen = true
     },
     remover: (state, action: PayloadAction<string>) => {
       state.itens = state.itens.filter((item) => item.cartId !== action.payload)
