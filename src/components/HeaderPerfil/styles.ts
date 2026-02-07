@@ -22,6 +22,23 @@ export const HeaderContainer = styled.div`
   img {
     justify-self: center;
   }
+
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 16px;
+
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'back cart'
+      'logo logo';
+
+    img {
+      grid-area: logo;
+      justify-self: center;
+      margin: 0 auto;
+    }
+    row-gap: 12px;
+  }
 `
 
 export const CartButton = styled.span`
@@ -35,6 +52,11 @@ export const CartButton = styled.span`
   color: #e66767;
   font-size: 20px;
   font-weight: 700;
+
+  @media (max-width: 768px) {
+    grid-area: cart;
+    font-size: 16px;
+  }
 
   img {
     width: 20px;
@@ -55,6 +77,11 @@ export const LinkRestaurantes = styled(Link)`
   text-decoration: none;
   color: ${cores.vermelho};
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    grid-area: back;
+    font-size: 18px;
+  }
 
   &:hover {
     text-decoration: underline;

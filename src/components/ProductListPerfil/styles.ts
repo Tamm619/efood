@@ -8,4 +8,12 @@ export const ListPerfil = styled.ul`
   margin: 56px auto 0;
   padding: 0;
   list-style: none;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* 1 produto por vez */
+  }
 `

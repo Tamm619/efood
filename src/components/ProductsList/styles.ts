@@ -15,6 +15,11 @@ export const List = styled.ul`
   justify-content: center;
   margin: 0;
   padding: 0;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 `
 
 export const Title = styled.h2`
