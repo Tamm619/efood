@@ -7,6 +7,7 @@ import {
   Botao,
   BotaoSecundario,
   Erro,
+  Footer,
   Form,
   Grid2,
   Item,
@@ -335,18 +336,24 @@ const Carrinho = () => {
               ))}
             </Lista>
 
-            <Resumo>
-              <span>Valor total</span>
-              <span>R$ {total.toFixed(2)}</span>
-            </Resumo>
+            <Footer>
+              <Resumo>
+                <span>Valor total</span>
+                <span>R$ {total.toFixed(2)}</span>
+              </Resumo>
 
-            <Botao
-              type="button"
-              disabled={itens.length === 0}
-              onClick={goDelivery}
-            >
-              Continuar com a entrega
-            </Botao>
+              <Botao
+                type="button"
+                disabled={itens.length === 0}
+                onClick={goDelivery}
+              >
+                Continuar com a entrega
+              </Botao>
+
+              <BotaoSecundario type="button" onClick={closeAll}>
+                Fechar carrinho
+              </BotaoSecundario>
+            </Footer>
           </>
         )}
 

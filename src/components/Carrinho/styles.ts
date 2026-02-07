@@ -12,17 +12,47 @@ export const Aside = styled.aside`
   position: absolute;
   top: 0;
   right: 0;
+
   width: 360px;
   height: 100%;
   background: ${cores.vermelho};
+
+  display: flex;
+  flex-direction: column;
+
   padding: 16px;
-  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    width: 92vw;
+    max-width: 360px;
+  }
 `
 
 export const Lista = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+
+  flex: 1;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${cores.vermelhohover};
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${cores.brancofull};
+  }
 `
 
 export const Item = styled.li`
@@ -62,12 +92,21 @@ export const Item = styled.li`
   }
 `
 
+export const Footer = styled.div`
+  position: sticky;
+  bottom: 0;
+
+  background: ${cores.vermelho};
+  padding: 12px 16px 16px;
+
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.2);
+`
+
 export const Resumo = styled.div`
   display: flex;
   justify-content: space-between;
   color: ${cores.rosinha};
   font-weight: bold;
-  margin-top: 24px;
   margin-bottom: 16px;
 `
 
@@ -119,8 +158,6 @@ export const Form = styled.form`
 
   input {
     width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
     height: 32px;
     border: 0;
     padding: 0 8px;
@@ -144,7 +181,6 @@ export const Texto = styled.p`
   margin: 0 0 16px 0;
 `
 
-// ✅ mensagens de validação
 export const Erro = styled.small`
   color: ${cores.brancofull};
   font-size: 11px;
